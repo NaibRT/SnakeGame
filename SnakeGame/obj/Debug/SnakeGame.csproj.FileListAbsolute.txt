@@ -2,7 +2,6 @@ c:\users\naib\source\repos\SnakeGame\SnakeGame\bin\Debug\SnakeGame.exe.config
 c:\users\naib\source\repos\SnakeGame\SnakeGame\bin\Debug\SnakeGame.exe
 c:\users\naib\source\repos\SnakeGame\SnakeGame\bin\Debug\SnakeGame.pdb
 c:\users\naib\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csprojResolveAssemblyReference.cache
-c:\users\naib\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.Form1.resources
 c:\users\naib\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.Properties.Resources.resources
 c:\users\naib\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csproj.GenerateResource.cache
 c:\users\naib\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csproj.CoreCompileInputs.cache
@@ -18,3 +17,4 @@ C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csproj.GenerateRes
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csproj.CoreCompileInputs.cache
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.exe
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.pdb
+C:\Users\Naib\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.SnakeGame.resources
