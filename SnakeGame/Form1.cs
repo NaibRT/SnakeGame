@@ -17,6 +17,14 @@ namespace SnakeGame
         public Form1()
         {
             InitializeComponent();
+            var meal = new Label();
+            meal.Left = 10;
+            meal.Top = 10;
+            meal.Height = 10;
+            meal.Width = 10;
+            meal.BackColor = Color.Red;
+            Controls.Add(meal);
+
             this.Width = 500 + 17;
             this.Height = 500 + 40;
             button5.Height = 10;
@@ -28,46 +36,83 @@ namespace SnakeGame
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {//top
-            if (button5.Top<0)
-            {
-                button5.Top = 500;
-                MessageBox.Show("ERROR");
-            }
-            else
+        
+
+
+
+        private void button5_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
             {
                 top -= 10;
-                button5.Top = top;
+                if (button5.Top < 0)
+                {
+                    top = 500;
+                    button5.Top = top;
+                    top -= 10;
+                    button5.Top = top;
+
+                }
+                else
+                {
+                    top -= 10;
+                    button5.Top = top;
+                }
             }
-            
-               
-           
-           
-           
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {//down
-            if (button5.Top > 540)
-            {
-                button5.Top = 0;
-            }
-            else
+            //\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+            if (e.KeyCode == Keys.Down)
             {
                 top += 10;
-                button5.Top = top;
+                if (button5.Top > 500)
+                {
+                    top = 0;
+                    button5.Top = top;
+
+                    top += 10;
+                    button5.Top = top;
+                }
+                else
+                {
+                    top += 10;
+                    button5.Top = top;
+                }
             }
 
-        }
-        private void button4_Click(object sender, EventArgs e)
-        {//right
-            left += 10;
-            button5.Left = left;
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {//left
-            left -= 10;
-            button5.Left = left;
+            //\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+            if (e.KeyCode == Keys.Right)
+            {
+                left += 10;
+                if (button5.Left > 500)
+                {
+                    left = 0;
+                    button5.Left = left;
+                    left += 10;
+                    button5.Left = left;
+                }
+                else
+                {
+                    left += 10;
+                    button5.Left = left;
+                }
+            }
+            //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+            if (e.KeyCode == Keys.Left)
+            {
+                left -= 10;
+                if (button5.Left < 0)
+                {
+                    left = 500;
+                    button5.Left = left;
+                    left -= 10;
+                    button5.Left = left;
+                }
+                else
+                {
+                    left -= 10;
+                    button5.Left = left;
+
+                }
+            }
         }
     }
 }
