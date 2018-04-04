@@ -17,12 +17,21 @@ namespace SnakeGame
         public Button snake;
         public Button meal;
         public Random teq = new Random();
+        public List<Button> body = new List<Button>();
+        public int z = 0;
+
+
+
+
 
         public SnakeGame()
         {
             InitializeComponent();
+
+         
             Random teq = new Random();
-            
+
+
             meal = new Button();
             meal.Enabled = false;
             meal.Left = 100;//teq.Next(24,524);
@@ -41,12 +50,14 @@ namespace SnakeGame
             snake.Left = left;
             snake.BackColor = Color.White;
             Controls.Add(meal);
+            body.Add(snake);
             Controls.Add(snake);
-            this.Width = 500+17;
-            this.Height = 500+40;
+            
+            this.Width = 520;
+            this.Height = 540;
             //this.BringToFront();
             //this.Focus();
-            //this.KeyPreview = true;
+            //this.KeyPreview = true
             this.KeyUp += new KeyEventHandler(SnakeGame_KeyUp);
 
 
@@ -69,8 +80,8 @@ namespace SnakeGame
                         snake.Top = top;
                     }
                     mealeating();
-                    
 
+                   
 
 
 
@@ -98,8 +109,8 @@ namespace SnakeGame
                     //    snake.BackColor = Color.Green;
 
                     //}
-                    mealeating();
-                    
+                     mealeating();
+                   
 
                 }
 
@@ -121,7 +132,7 @@ namespace SnakeGame
                         left += 20;
                         snake.Left = left;
                     }
-                    mealeating();
+                     mealeating();
                     
 
                 }
@@ -145,38 +156,74 @@ namespace SnakeGame
                     }
                     mealeating();
                     
-
                 }
             }
 
         }
           public  void mealeating()
         {
-            if (snake.Left == meal.Left && snake.Top == meal.Top)
+            
+            if (snake.Location.X == meal.Location.X && snake.Location.Y == meal.Location.Y)
             {
-                meal.Hide();
+                meal.Visible=false;
                 snake.BackColor = Color.Green;
                 makemeal();
+                snakegrow();
 
             }
         }
         public void makemeal()
         {
-            int ran1 = 0;
-            int ran2 = 0;
             meal = new Button();
+            while (true)
+            {
+                int x = teq.Next(0, 500);
+                int y = teq.Next(0, 500);
+                if (x % 20 == 0 && y%20==0)
+                {
+                    meal.Top = x;
+                    meal.Left = y;
+                   
+                    break;
+                }
+              
+                
+            }
+           
+
             meal.Enabled = false;
-            ran1=(teq.Next(0, 500)/2);
-            ran2 = (teq.Next(0, 500) / 2);
-            meal.Top = ran1;
-            meal.Left = ran2;
             meal.Height = 20;
             meal.Width = 20;
             meal.BackColor = Color.Red;
             meal.FlatStyle = FlatStyle.Flat;
             Controls.Add(meal);
+            
+        }
+        public void snakegrow()
+        {
+           
+        
+            if (snake.Location.X == meal.Location.X && snake.Location.Y == meal.Location.Y)
+            {
+                z++;
+                body.Clear();
+                for (int i = 0; i < z; i++)
+                {
+                    snake = new Button();
+                    snake.Height = 20;
+                    snake.Width = 20;
+                    snake.FlatStyle = FlatStyle.Flat;
+                    snake.Top = top;
+                    snake.Left = left;
+                    snake.BackColor = Color.White;
+                    body.Add(snake);
+                    top += 20;
+                    left += 20;
+                }
+                Controls.Add(snake);
+            }
         }
 
-
+        
     }
 }

@@ -11,10 +11,10 @@ C:\Users\P106\Desktop\SnakeGame\SnakeGame\bin\Debug\SnakeGame.exe.config
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\bin\Debug\SnakeGame.exe
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\bin\Debug\SnakeGame.pdb
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csprojResolveAssemblyReference.cache
-C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.Form1.resources
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.Properties.Resources.resources
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csproj.GenerateResource.Cache
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csproj.CoreCompileInputs.cache
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.exe
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.pdb
 C:\Users\Naib\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.SnakeGame.resources
+C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.SnakeGame.resources
