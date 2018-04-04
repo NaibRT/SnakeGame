@@ -14,50 +14,51 @@ namespace SnakeGame
     {
         public int top = 0;
         public int left = 0;
+        public int topbody = 20;
         public Button snake;
+        public Button snakebas;// = new Button();
         public Button meal;
         public Random teq = new Random();
         public List<Button> body = new List<Button>();
         public int z = 0;
 
-
-
-
-
         public SnakeGame()
         {
             InitializeComponent();
-
-         
             Random teq = new Random();
-
-
             meal = new Button();
             meal.Enabled = false;
-            meal.Left = 100;//teq.Next(24,524);
-            meal.Top = 100;//teq.Next(26, 524);
+            meal.Left = 100;
+            meal.Top = 100;
             meal.Height = 20;
             meal.Width = 20;
             meal.BackColor = Color.Red;
             meal.FlatStyle = FlatStyle.Flat;
 
-
-            snake = new Button();
-            snake.Height = 20;
-            snake.Width = 20;
-            snake.FlatStyle = FlatStyle.Flat;
-            snake.Top = top;
-            snake.Left = left;
-            snake.BackColor = Color.White;
+            for (int i = 0; i < 3; i++)
+            {
+                snakebas = new Button();
+                snakebas.Height = 20;
+                snakebas.Width = 20;
+                snakebas.FlatStyle = FlatStyle.Flat;
+                snakebas.Top = top;
+                snakebas.Left = left;
+                snakebas.BackColor = Color.White;
+                body.Add(snakebas);
+             
+                top += 20;
+                //left += 20;
+            }
+            //body[0].Enabled = false;
+            //body[1].Enabled = false;
+            foreach (var item in body)
+            {
+                Controls.Add(item);
+             }
             Controls.Add(meal);
-            body.Add(snake);
-            Controls.Add(snake);
             
             this.Width = 520;
             this.Height = 540;
-            //this.BringToFront();
-            //this.Focus();
-            //this.KeyPreview = true
             this.KeyUp += new KeyEventHandler(SnakeGame_KeyUp);
 
 
@@ -65,96 +66,110 @@ namespace SnakeGame
             {
                 if (e.KeyCode == Keys.Up)
                 {
-                    //top -= 10;
-                    if (snake.Top < 0)
+                    for (int i = 0; i < 3; i++)
                     {
-                        top = 500;
-                        snake.Top = top;
-                        top -= 20;
-                        snake.Top = top;
+                        if (body[i].Top < 0)
+                        {
+                            top = 500;
+                            body[i].Top = top;
+                            top -= 20;
+                            body[i].Top = top;
+
+                        }
+                        else
+                        {
+                            top -= 20;
+                            body[i].Top = top;
+                        }
+                        mealeating();
+                    }
 
                     }
-                    else
-                    {
-                        top -= 20;
-                        snake.Top = top;
-                    }
-                    mealeating();
-
-                   
-
-
-
-                }
                 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\
                 if (e.KeyCode == Keys.Down)
                 {
-                   // top += 10;
-                    if (snake.Top > 500)
+                    
+                    // top += 10;
+                    for (int i = 0; i < 3; i++)
                     {
-                        top = 0;
-                        snake.Top = top;
+                        if (body[i].Top > 500)
+                        {
+                            //top = 0;
+                            //snakebas.Top = top;
+                            //top += 20;
+                            //snakebas.Top = top;
 
-                        top += 20;
-                        snake.Top = top;
+                            top = 0;
+                            body[i].Top =top;
+                            top += 20;
+                            body[i].Top = top;
+                            
+
+
+                        }
+                        else
+                        {
+                            //top += 20;
+                            //snakebas.Top = top;
+                            
+                                top += 20;
+                                body[i].Top = top;
+                           
+                            
+                        }
+                        mealeating();
                     }
-                    else
-                    {
-                        top += 20;
-                        snake.Top = top;
-                    }
-                    //if (snake.Left == meal.Left && snake.Top == meal.Top)
-                    //{
-                    //    meal.Hide();
-                    //    snake.BackColor = Color.Green;
-
-                    //}
-                     mealeating();
-                   
-
-                }
+                 }
 
                 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\
                 if (e.KeyCode == Keys.Right)
                 {
-
-                   // left += 10;
-                    if (snake.Left >500)
+                    for (int i = 0; i < 0; i++)
                     {
-                        left = 0;
-                        snake.Left = left;
+                        if (body[i].Left > 500)
+                        {
+                            left = 0;
+                            body[i].Left = left;
+                            left += 20;
+                            body[i].Left = left;
+                        }
+                        else
+                        {
+                            left += 20;
+                            body[i].Left += left;
+                            if (body[i + 1].Top != body[i].Top)
+                            {
+                                body[i + 1].Top += 20;
+                            }
+                            else
+                            {
+                                body[i - 1].Left += 20;
+                            }
 
-                        left += 20;
-                        snake.Left = left;
+                        }
+                        mealeating();
                     }
-                    else
-                    {
-                        left += 20;
-                        snake.Left = left;
                     }
-                     mealeating();
-                    
-
-                }
                 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
                 if (e.KeyCode == Keys.Left)
                 {
-
-                    //left -= 10;
-                    if (snake.Left < 0)
+                    for (int i = 0; i < 3; i++)
                     {
-                        left = 500;
-                        snake.Left = left;
-                        left -= 20;
-                        snake.Left = left;
-                    }
-                    else
-                    {
-                        left -= 20;
-                        snake.Left = left;
+                        if (body[i].Left < 0)
+                        {
+                            left = 500;
+                            body[i].Left = left;
+                            left -= 20;
+                            body[i].Left = left;
+                        }
+                        else
+                        {
+                            left -= 20;
+                            body[i].Left = left;
 
+                        }
+                        mealeating();
                     }
-                    mealeating();
                     
                 }
             }
@@ -163,31 +178,28 @@ namespace SnakeGame
           public  void mealeating()
         {
             
-            if (snake.Location.X == meal.Location.X && snake.Location.Y == meal.Location.Y)
+            if (snakebas.Location.X == meal.Location.X && snakebas.Location.Y == meal.Location.Y)
             {
                 meal.Visible=false;
-                snake.BackColor = Color.Green;
+                snakebas.BackColor = Color.Green;
                 makemeal();
                 snakegrow();
-
             }
         }
         public void makemeal()
         {
-            meal = new Button();
             while (true)
             {
                 int x = teq.Next(0, 500);
                 int y = teq.Next(0, 500);
-                if (x % 20 == 0 && y%20==0)
+                if (x % 20 == 0 && y % 20 == 0)
                 {
+                    meal = new Button();
                     meal.Top = x;
                     meal.Left = y;
-                   
+
                     break;
                 }
-              
-                
             }
            
 
@@ -201,29 +213,15 @@ namespace SnakeGame
         }
         public void snakegrow()
         {
-           
-        
-            if (snake.Location.X == meal.Location.X && snake.Location.Y == meal.Location.Y)
-            {
-                z++;
-                body.Clear();
-                for (int i = 0; i < z; i++)
-                {
-                    snake = new Button();
-                    snake.Height = 20;
-                    snake.Width = 20;
-                    snake.FlatStyle = FlatStyle.Flat;
-                    snake.Top = top;
-                    snake.Left = left;
-                    snake.BackColor = Color.White;
-                    body.Add(snake);
-                    top += 20;
-                    left += 20;
-                }
-                Controls.Add(snake);
-            }
+                //snake = new Button();
+                //snake.Height = 20;
+                //snake.Width = 20;
+                //snake.FlatStyle = FlatStyle.Flat;
+                //snake.Top = snakebas.Top - 20;
+                //snake.Left = snakebas.Left;
+                //snake.BackColor = Color.White;
+                //body.Add(snake);
+                //Controls.Add(snake);
         }
-
-        
     }
 }
