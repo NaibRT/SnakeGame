@@ -37,12 +37,12 @@ namespace SnakeGame
             
             
 
-            for (int i = 0; i < 3; i++)
-            {
+            
+            
                 snakebas = new Button();
                 snakebas.Height = 20;
                 snakebas.Width = 20;
-                snakebas.FlatStyle = FlatStyle.Flat;
+                snakebas.FlatStyle = FlatStyle.Popup;
                 snakebas.Top = top;
                 snakebas.Left = left;
                 snakebas.BackColor = Color.White;
@@ -50,7 +50,7 @@ namespace SnakeGame
              
                 top += 20;
                 //left += 20;
-            }
+            
           
 
             foreach (var item in body)
@@ -80,13 +80,29 @@ namespace SnakeGame
                         }
                         else
                         {
-                            //top -= 20;
-                            body[i].Top -= 20;
+                            if (body[i]==body[0])
+                            {
+                                //top -= 20;
+                                body[i].Top -= 20;
+                            }
+                            else if (body[i].Left > body[0].Left)
+                            {
+                                body[i].Left -= 20;
+                            }
+                            else if (body[i].Left < body[0].Left)
+                            {
+                                body[i].Left += 20;
+                            }
+                            else
+                            {
+                                body[i].Top -= 20;
+                            }
                         }
-                        mealeating();
+                        
                     }
+                    mealeating();
 
-                    }
+                }
                 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\
                 if (e.KeyCode == Keys.Down)
                 {
@@ -105,23 +121,36 @@ namespace SnakeGame
                             body[i].Top =top;
                             top += 20;
                             body[i].Top = top;
-                            
-
-
-                        }
+                         }
                         else
                         {
                             //top += 20;
                             //snakebas.Top = top;
-                            
-                                top += 20;
-                                body[i].Top = top;
+                            if (body[i] == body[0])
+                            {
+                                //top += 20;
+                                body[i].Top += 20;
+                            }
+                            else if (body[i].Left < body[0].Left)
+                            {
+                                body[i].Left += 20;
+                            }
+                            else if (body[i].Left > body[0].Left)
+                            {
+                                body[i].Left -= 20;
+                            }
+                            else
+                            {
+                                body[i].Top += 20;
+                            }
+                                
                            
                             
                         }
-                        mealeating();
+                       
                     }
-                 }
+                    mealeating();
+                }
 
                 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\
                 if (e.KeyCode == Keys.Right)
@@ -137,15 +166,29 @@ namespace SnakeGame
                         }
                         else
                         {
-                            left += 20;
-                            body[i].Left = left;
-                            //body[i+1].Left = body[i].Left-left;
-                           
-
-                        }
-                        mealeating();
+                            if (body[i]==body[0])
+                            {
+                                //left += 20;
+                                body[i].Left += 20;
+                            }
+                            else if (body[i].Top > body[0].Top)
+                            {
+                                body[i].Top -= 20;
+                            }
+                            else if (body[i].Top < body[0].Top)
+                            {
+                                body[i].Top += 20;
+                            }
+                            else 
+                            {
+                                body[i].Left += 20;
+                            }
+                            
+                         }
+                        
                     }
-                    }
+                    mealeating();
+                }
                 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
                 if (e.KeyCode == Keys.Left)
                 {
@@ -160,29 +203,43 @@ namespace SnakeGame
                         }
                         else
                         {
-                            left -= 20;
-                            body[i].Left = left;
+                            if (body[i]==body[0])
+                            {
+                                //left -= 20;
+                                body[i].Left -=20;
+                            }
+                            else if (body[i].Top < body[0].Top)
+                            {
+                                body[i].Top += 20;
+                            }
+                            else if (body[i].Top >body[0].Top)
+                            {
+                                body[i].Top -= 20;
+                            }
+                            else
+                            {
+                                body[i].Left -= 20;
+                            }
+                           
 
                         }
-                        mealeating();
+                       
                     }
-                    
+                    mealeating();
+
                 }
             }
 
         }
           public  void mealeating()
         {
-
-            
-            
-                if (body[0].Location.X == meal.Location.X && body[0].Location.Y == meal.Location.Y)
+            if (body[0].Location.X == meal.Location.X && body[0].Location.Y == meal.Location.Y)
                 {
-                    Controls.Remove(meal);
-                    body[0].BackColor = Color.Green;
-                    //makemeal();
-                    snakegrow();
-                }
+                Controls.Remove(meal);
+                body[0].BackColor = Color.Green;
+                makemeal();
+                snakegrow();
+            }
             
         }
         public void makemeal()
@@ -201,8 +258,8 @@ namespace SnakeGame
                     break;
                 }
             }
-            //meal = new Button();
-            //meal.Enabled = false;
+
+            meal.Enabled = false;
             //meal.Top = 160;
             //meal.Left = 0;
 
@@ -213,19 +270,18 @@ namespace SnakeGame
             meal.FlatStyle = FlatStyle.Flat;
             Controls.Add(meal);
             
-        }
+        }//makemeal de deyisiklikler olunmalidi.
         public void snakegrow()
         {
             snake = new Button();
             snake.Enabled = false;
             snake.Height = 20;
             snake.Width = 20;
-            snake.FlatStyle = FlatStyle.Flat;
+            snake.FlatStyle = FlatStyle.Popup;
+          
             snake.Top = body[body.Count - 1].Top + 20;
             snake.Left = body[body.Count - 1].Left;
             snake.BackColor = Color.White;
-
-            
             Controls.Add(snake);
             body.Add(snake);
         }

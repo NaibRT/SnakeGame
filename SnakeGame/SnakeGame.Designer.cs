@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(596, 555);
+            this.ClientSize = new System.Drawing.Size(504, 501);
             this.KeyPreview = true;
             this.Name = "SnakeGame";
             this.Text = "Form2";
