@@ -39,6 +39,7 @@
             this.KeyPreview = true;
             this.Name = "SnakeGame";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.SnakeGame_Load);
             this.ResumeLayout(false);
 
         }
