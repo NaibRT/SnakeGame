@@ -18,3 +18,13 @@ C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.exe
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.pdb
 C:\Users\Naib\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.SnakeGame.resources
 C:\Users\P106\Desktop\SnakeGame\SnakeGame\obj\Debug\SnakeGame.SnakeGame.resources
+C:\Users\Naib\Desktop\naib\SnakeGame\bin\Debug\SnakeGame.exe.config
+C:\Users\Naib\Desktop\naib\SnakeGame\bin\Debug\SnakeGame.exe
+C:\Users\Naib\Desktop\naib\SnakeGame\bin\Debug\SnakeGame.pdb
+C:\Users\Naib\Desktop\naib\SnakeGame\obj\Debug\SnakeGame.csprojResolveAssemblyReference.cache
+C:\Users\Naib\Desktop\naib\SnakeGame\obj\Debug\SnakeGame.Properties.Resources.resources
+C:\Users\Naib\Desktop\naib\SnakeGame\obj\Debug\SnakeGame.SnakeGame.resources
+C:\Users\Naib\Desktop\naib\SnakeGame\obj\Debug\SnakeGame.csproj.GenerateResource.cache
+C:\Users\Naib\Desktop\naib\SnakeGame\obj\Debug\SnakeGame.csproj.CoreCompileInputs.cache
+C:\Users\Naib\Desktop\naib\SnakeGame\obj\Debug\SnakeGame.exe
+C:\Users\Naib\Desktop\naib\SnakeGame\obj\Debug\SnakeGame.pdb
